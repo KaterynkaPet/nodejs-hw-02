@@ -16,4 +16,4 @@ export const initMongoConnection = async () => {
         console.log("Mongodb connection error", error.meddage);
         throw error;
     };
-}
+};

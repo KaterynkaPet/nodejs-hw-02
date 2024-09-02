@@ -28,7 +28,7 @@ export const startServer = () => {
         });
     });
 
-    app.get("/contacts", async (req, res) => {
+    app.get("/contacts/:id", async (req, res) => {
         const { id } = req.params;
         const data = await contactServices.getAllContactById(id);
         
