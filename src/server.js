@@ -1,11 +1,12 @@
 import express from "express";
 import cors from "cors";
 import pino from "pino-http";
-import dotenv from "dotenv";
 
 import { env } from "./utils/env.js";
+import contactsRouter from "./routers/contacts.js";
 
-export const starServer = () => {
+
+export const startServer = () => {
     const app = express();
 
     const logger = pino({
@@ -17,8 +18,8 @@ export const starServer = () => {
     app.use(cors());
     app.use(express.json());
 
-    //routes
-
+    app.use("/contacts", contactsRouter);
+      
     app.use((req, res) => {
         res.status(404).json({
             message: 'Not found',
@@ -33,6 +34,5 @@ export const starServer = () => {
 
     const port = Number(env("PORT", 3000));
 
-    app.listen(port, () => console.log("Server is running on port {PORT}"));
+    app.listen(port, () => console.log(`Server is running on port ${port}`));
 };
-
