@@ -18,7 +18,7 @@ export const startServer = () => {
 
     app.use("/contacts", contactsRouter);
       
-    app.use(notFoundHandler);
+        app.use(notFoundHandler);
 
     app.use(errorHandler);
 
