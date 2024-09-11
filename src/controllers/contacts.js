@@ -1,6 +1,8 @@
 import * as contactServices from "../services/contacts.js";
 import createHttpError from "http-errors";
 
+import { contactAddSchema } from '../validation/contacts.js';
+
 export const getAllContactsController = async (req, res) => {
 
     const data = await contactServices.getAllContacts();
@@ -31,6 +33,7 @@ export const getAllContactByIdController = async (req, res) => {
 };
 
 export const addContactController = async (req, res) => {
+     
     const data = await contactServices.createContact(req.body);
   
     
