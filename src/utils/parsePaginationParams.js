@@ -1,7 +1,13 @@
 const parseIntegre = (value, defaulValue) => {
-    if (typeof value !== "string") return defaulValue;
+    if (typeof value !== "string")
+        return defaulValue;
+
     const parsedValue = parseInt(value);
-    if (Number.isNaN(parsedValue)) return defaulValue;
+
+    if (Number.isNaN(parsedValue))
+        return defaulValue;
+
+    return parsedValue;
 };
 
 const parsePaginationParams = ({ perPage, page }) => {
