@@ -1,4 +1,4 @@
-import createError from "http-errors";
+import createHttpError from "http-errors";
 
 const validateBody = schema => {
     const func = async (req, res, next) => {
@@ -9,7 +9,7 @@ const validateBody = schema => {
             next();
         }
         catch(error) {
-            const validateError = createError(400, error.message);
+            const validateError = createHttpError(400, error.message);
             next(validateError);
         }
     };

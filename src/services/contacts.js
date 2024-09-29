@@ -41,13 +41,12 @@ export const getContacts = async ({
     };
 };
 
-export const getAllContactById = id => ContactCollection.findById(id);
+export const getAllContactById = filter => ContactCollection.findById(filter);
 
 export const createContact = payload => ContactCollection.create(payload);
 
 export const updateContact = async (filter, data, options = {}) => {
     const rawResult = await ContactCollection.findOneAndUpdate(filter, data, {
-        new: true,
         includeResultMetadata:true,
         ...options,
     });
@@ -56,7 +55,7 @@ export const updateContact = async (filter, data, options = {}) => {
 
     return {
         data: rawResult.value,
-        isNew: Boolean(rawResult.lastErrorObject?.upserted),
+        isNew: Boolean(rawResult?.lastErrorObject?.upserted),
     };
 };
 
