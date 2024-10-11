@@ -22,7 +22,7 @@ requestBody:
           phoneNumber:
             description: "Contact's phoneNumber"
             type: string
-            example: '123-456-7890'
+            example: '11111111111'
           contactType:
             description: "Contact's type"
             type: string
