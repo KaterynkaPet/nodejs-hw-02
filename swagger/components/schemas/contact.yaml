@@ -2,10 +2,9 @@ type: object
 required:
   - _id
   - name
-  - age
-  - gender
-  - avgMark
-  - onDuty
+  - phoneNumber
+  - contactType
+  - userId
 properties:
   _id:
     description: "Contact's id"
@@ -15,27 +14,41 @@ properties:
     description: "Contact's name"
     type: string
     example: 'John Doe'
-  age:
-    description: "Contact's age"
-    type: number
-    example: 12
-  gender:
-    description: "Contact's age"
+  phoneNumber:
+    description: "Contact's phoneNumber"
     type: string
-    enum: ['male', 'female', 'other']
-  avgMark:
-    description: "Contact's average mark. Should be between 1 and 12"
-    type: number
-    example: 9.7
-  onDuty:
-    description: 'Whether is contact on duty'
+    example: '123-456-7890'
+  email:
+    description: "Contact's email"
+    type: string
+    enum: 'johndoe@example.com'
+  contactType:
+    description: "Contact's type"
+    type: string
+    enum: ['work', 'home', 'personal']
+    default: personal
+    example: work
+  isFavourite:
+    description: Whether is favourite contact or not
     type: boolean
-    example: false
-  parentId:
-    description: "Contact's parent id"
-    type: string
-    example: 65e4decdd286b30065d54af9
+    default: false
+    example: true
   photo:
-    description: "Link to contact's photo"
+    description: "URL of the contact's photo"
     type: string
-    example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
+    format: uri
+    example: 'https://res.cloudinary.com/dljavak0o/image/upload/v1728001801/photos/qxolmvmkwvun07hsvrqt.jpg'
+  userId:
+    description: "Contact's user id"
+    type: string
+    example: 66bb2c04d348911e38a4e9c1
+  createdAt:
+    description: 'At what date and time the user was created'
+    type: string
+    format: date-time
+    example: '2024-08-23T11:43:04.629Z'
+  updatedAt:
+    description: 'At what date and time the user was updated'
+    type: string
+    format: date-time
+    example: '2024-08-23T11:43:04.629Z'

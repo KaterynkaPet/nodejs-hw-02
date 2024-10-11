@@ -9,6 +9,7 @@ import authRouter from "./routers/auth.js";
 
 import notFoundHandler from "./middlewares/notFoundHandler.js";
 import errorHandler from "./middlewares/errorHandler.js";
+import swaggerDocs from "./middlewares/swaggwrDocs.js";
 import logger from "./middlewares/logger.js";
 
 export const startServer = () => {
@@ -22,6 +23,7 @@ export const startServer = () => {
 
     app.use("/auth", authRouter);
     app.use("/contacts", contactsRouter);
+    app.use("/api-docs", swaggerDocs());
       
         app.use(notFoundHandler);
 
